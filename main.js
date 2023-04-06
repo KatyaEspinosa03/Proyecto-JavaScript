@@ -27,6 +27,8 @@ function informacionGeneral(){
         let age = prompt("Ingrese su edad") 
         if (age == ""){
             alert("Introduzca su edad, por favor.")
+        }else if(/\D/.test(age)){
+            alert("Introduzca un valor numérico")
     }else if(age <= "18"){
         alert("No podemos otorgarle un préstamo porque es menor de edad.") 
         break
@@ -54,6 +56,8 @@ do{
 
     if (cantidad < 2500){
         alert("La cantidad minima a solicitar es 2,500. Ingrese otra cantidad.")
+    }else if(/\D/.test(cantidad)){
+            alert("Introduzca un valor numérico")
     }else if(cantidad > 150000){
         alert("La cantidad máxima a solicitar es 150,000. Ingrese otra cantidad.")
     } else {
