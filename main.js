@@ -56,6 +56,8 @@ do{
 
     if (cantidad < 2500){
         alert("La cantidad minima a solicitar es 2,500. Ingrese otra cantidad.")
+    }else if(/\D/.test(cantidad)){
+            alert("Introduzca un valor numérico")
     }else if(cantidad > 150000){
         alert("La cantidad máxima a solicitar es 150,000. Ingrese otra cantidad.")
     } else {
