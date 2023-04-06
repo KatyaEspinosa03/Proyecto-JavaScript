@@ -27,6 +27,8 @@ function informacionGeneral(){
         let age = prompt("Ingrese su edad") 
         if (age == ""){
             alert("Introduzca su edad, por favor.")
+        }else if(/\D/.test(age)){
+            alert("Introduzca un valor numérico")
     }else if(age <= "18"){
         alert("No podemos otorgarle un préstamo porque es menor de edad.") 
         break
