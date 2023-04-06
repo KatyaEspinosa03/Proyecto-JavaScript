@@ -3,18 +3,25 @@
 // DECLARO LA VARIABLE CANTIDAD Y EDAD DE MANERA GLOBAL PORQUE SERÁ UTILIZADA EN DIFERENTES FUNCIONES. 
 let cantidad;
 let edad = false 
+let informacion = false
 
 // COMIENZA PIDIENDOLE AL USUARIO POR SU INFORMACIÓN GENERAL. 
 
 function informacionGeneral(){
-    let name = prompt("Ingrese su nombre")
-    let lastName = prompt("Ingrese su apellido")
+    let name;
+    let lastName;
+
+    do {
+        name = prompt("Ingrese su nombre")
+        lastName = prompt("Ingrese su apellido")
 
     if (name == "" || lastName == "") {
         alert("Introduzca un dato valido")
     } else {
+        informacion = true
         alert("Bienvenido," + name + " " + lastName)
     }
+    } while(informacion == false)
 
     do {
         let age = prompt("Ingrese su edad") 
@@ -22,6 +29,9 @@ function informacionGeneral(){
             alert("Introduzca su edad, por favor.")
     }else if(age <= "18"){
         alert("No podemos otorgarle un préstamo porque es menor de edad.") 
+        break
+    } else if(age >= 85) {
+        alert("No podemos otorgarle un préstamo porque sobrepasa el máximo de edad.")
         break
     } else {
         alert("Felicidades," + name + " " + lastName + " " + "puedes aplicar para un crédito. \n Da aceptar para continuar")
@@ -105,7 +115,7 @@ function aceptarPrestamo(){
 
 informacionGeneral()
 // AGREGO IF PARA QUE EL PROGRAMA PUEDA CONTINUAR SI LA PERSONA TIENE MÁS DE 18 AÑOS Y LA EDAD NO ES NULL, SINO ES ASÍ LAS DEMÁS FUNCIONES NO SE EJECUTAN
-if (edad == true){
+if (edad == true && informacion == true){
     cantidadPrestamo()
     cuotasPrestamo()
     aceptarPrestamo()
