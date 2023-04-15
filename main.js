@@ -4,7 +4,10 @@
 let cantidad;
 let edad = false 
 let informacion = false
+//OBJETO 
+//ARRAY PARA GUARDAR EL NOMBRE DE LOS USUARIOS 
 
+let myArray = []
 // COMIENZA PIDIENDOLE AL USUARIO POR SU INFORMACIÓN GENERAL. 
 
 function informacionGeneral(){
@@ -14,6 +17,8 @@ function informacionGeneral(){
     do {
         name = prompt("Ingrese su nombre")
         lastName = prompt("Ingrese su apellido")
+        myArray.push(name, lastName)
+    
 
     if (name == "" || lastName == "") {
         alert("Introduzca un dato valido")
@@ -38,8 +43,11 @@ function informacionGeneral(){
     } else {
         alert("Felicidades," + name + " " + lastName + " " + "puedes aplicar para un crédito. \n Da aceptar para continuar")
         edad = true
+        
     }
 } while(edad == false)
+
+
 }
 
 
@@ -53,6 +61,7 @@ let prestamoCantidad = false
 
 do{
     cantidad = parseInt(prompt("Ingrese la cantidad que desea obtener"))
+    myArray.push(cantidad)
 
     if (cantidad < 2500){
         alert("La cantidad minima a solicitar es 2,500. Ingrese otra cantidad.")
@@ -104,6 +113,8 @@ function cuotasPrestamo (){
             "\n En total pagarás" + " " + pagoTotal +" " + "al mes.")
             break
     }
+
+    myArray.push(cuotas, totalInteres, pagoTotal)
 }
 
 // FUNCION PARA QUE EL USUARIO DECIDA SI QUIERE O NO ACEPTAR EL PRESTAMO. 
@@ -124,3 +135,7 @@ if (edad == true && informacion == true){
     cuotasPrestamo()
     aceptarPrestamo()
 }
+
+
+
+console.log(myArray)
