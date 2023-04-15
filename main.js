@@ -4,8 +4,14 @@
 let cantidad;
 let edad = false 
 let informacion = false
-//OBJETO 
 
+//OBJETO EN DONDE SE ALMACENARA EL NOMBRE Y EDAD DEL CLIENTE 
+const Cliente = function(name, lastName, age){
+    this.name = name
+    this.lastName = lastName
+    this.age = age
+
+}
 //ARRAY PARA GUARDAR LA INFORMACION QUE EL USUARIO INGRESA. COMO SI FUERA EL HISTORIAL 
 let myArray = []
 // COMIENZA PIDIENDOLE AL USUARIO POR SU INFORMACIÓN GENERAL. 
@@ -17,7 +23,7 @@ function informacionGeneral(){
     do {
         name = prompt("Ingrese su nombre")
         lastName = prompt("Ingrese su apellido")
-        myArray.push(name, lastName)
+        
     
 
     if (name == "" || lastName == "") {
@@ -43,7 +49,10 @@ function informacionGeneral(){
     } else {
         alert("Felicidades," + name + " " + lastName + " " + "puedes aplicar para un crédito. \n Da aceptar para continuar")
         edad = true
-        
+        // SE CREA UN NUEVO OBJETO DE LA FUNCION CONSTRUCTORA PARA ALMACENAR LA INFORMACION INGRESADA
+        let nuevoCliente = new Cliente(name, lastName, age)
+        // SE AGREGA NUEVO CLIENTE A MI ARRAY
+        myArray.push(nuevoCliente)
     }
 } while(edad == false)
 
