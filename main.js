@@ -146,5 +146,5 @@ if (edad == true && informacion == true){
 }
 
 
-
+// LLAMO A MI ARRAY PARA VER CUAL FUE LA INFORMACIÓN QUE SE ALMACENÓ 
 console.log(myArray)
