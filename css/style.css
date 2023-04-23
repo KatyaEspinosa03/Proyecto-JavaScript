@@ -10,6 +10,12 @@ body {
       color: #be7db9;
       font-size: 150%; }
 
+main {
+  font-weight: bold;
+  color: #be7db9; }
+  main .segundo {
+    margin-top: -10px; }
+
 footer {
   background-color: white;
   color: #8a4484;
