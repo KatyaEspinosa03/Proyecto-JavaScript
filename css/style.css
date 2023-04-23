@@ -10,4 +10,15 @@ body {
       color: #be7db9;
       font-size: 150%; }
 
+footer {
+  background-color: white;
+  color: #8a4484;
+  font-weight: bold; }
+  footer .disclaimer {
+    font-weight: bold;
+    color: #be7db9; }
+  footer .copy-right {
+    font-size: 70%;
+    margin-top: 10px; }
+
 /*# sourceMappingURL=style.css.map */
