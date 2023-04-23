@@ -1,4 +1,4 @@
-// SIMULADOR DE UN PRESTAMO 
+/* SIMULADOR DE UN PRESTAMO 
 
 // DECLARO LA VARIABLE CANTIDAD Y EDAD DE MANERA GLOBAL PORQUE SERÁ UTILIZADA EN DIFERENTES FUNCIONES. 
 let cantidad;
@@ -124,3 +124,4 @@ if (edad == true && informacion == true){
     cuotasPrestamo()
     aceptarPrestamo()
 }
+*/
