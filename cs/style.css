@@ -17,8 +17,7 @@ main {
     margin-top: -10px; }
 
 .formulario {
-  width: 50%;
-  margin-bottom: 10px; }
+  width: 50%; }
   .formulario .estilo-form {
     font-weight: bold;
     color: #be7db9; }
@@ -26,8 +25,7 @@ main {
 footer {
   background-color: white;
   color: #8a4484;
-  font-weight: bold;
-  height: 100px; }
+  font-weight: bold; }
   footer .disclaimer {
     font-weight: bold;
     color: #be7db9; }

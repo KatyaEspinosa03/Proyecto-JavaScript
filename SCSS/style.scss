@@ -1,3 +1,5 @@
+$colorTexto: rgb(190, 125, 185);
+
 body {
     background-color: rgb(254,251,234);
 }
@@ -10,7 +12,7 @@ body {
 
         a {
             font-weight: bold;
-            color: rgb(190, 125, 185);
+            color: $colorTexto;
             font-size: 150%;
         }
     }
@@ -19,19 +21,31 @@ body {
 main {
 
     font-weight: bold;
-    color:  rgb(190, 125, 185);
+    color: $colorTexto;
     .segundo {
         margin-top: -10px;
     }
 }
+
+.formulario {
+    width: 50%;
+    margin-bottom: 10px;
+    .estilo-form {
+        font-weight: bold;
+        color: $colorTexto;
+    }
+    
+}
+
 footer {
     background-color: rgb(255, 255, 255);
     color: rgb(138, 68, 132);
     font-weight: bold;
+    height: 100px;
 
     .disclaimer {
         font-weight: bold;
-        color:  rgb(190, 125, 185);
+        color: $colorTexto;
     }
 
     .copy-right {
