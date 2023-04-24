@@ -1,0 +1,38 @@
+body {
+  background-color: #fefbea; }
+
+.nav {
+  background-color: white; }
+  .nav .nav-item {
+    margin-right: 10px; }
+    .nav .nav-item a {
+      font-weight: bold;
+      color: #be7db9;
+      font-size: 150%; }
+
+main {
+  font-weight: bold;
+  color: #be7db9; }
+  main .segundo {
+    margin-top: -10px; }
+
+.formulario {
+  width: 50%;
+  margin-bottom: 10px; }
+  .formulario .estilo-form {
+    font-weight: bold;
+    color: #be7db9; }
+
+footer {
+  background-color: white;
+  color: #8a4484;
+  font-weight: bold;
+  height: 100px; }
+  footer .disclaimer {
+    font-weight: bold;
+    color: #be7db9; }
+  footer .copy-right {
+    font-size: 70%;
+    margin-top: 10px; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,4 +1,4 @@
-// SIMULADOR DE UN PRESTAMO 
+/* SIMULADOR DE UN PRESTAMO 
 
 // DECLARO LA VARIABLE CANTIDAD Y EDAD DE MANERA GLOBAL PORQUE SERÁ UTILIZADA EN DIFERENTES FUNCIONES. 
 let cantidad;
@@ -147,4 +147,4 @@ if (edad == true && informacion == true){
 
 
 // LLAMO A MI ARRAY PARA VER CUAL FUE LA INFORMACIÓN QUE SE ALMACENÓ 
-console.log(myArray)
+console.log(myArray)*/
