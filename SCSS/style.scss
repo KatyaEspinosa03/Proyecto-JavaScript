@@ -34,7 +34,13 @@ main {
         font-weight: bold;
         color: $colorTexto;
     }
-    
+
+    .btn { 
+        background-color: $colorTexto;
+        color: #fff;
+        margin-top: 20px;
+        margin-bottom: 20px;
+}
 }
 
 footer {

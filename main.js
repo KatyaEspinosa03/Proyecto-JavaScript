@@ -1,9 +1,18 @@
-/* SIMULADOR DE UN PRESTAMO 
+//SIMULADOR DE UN PRESTAMO 
 
-// DECLARO LA VARIABLE CANTIDAD Y EDAD DE MANERA GLOBAL PORQUE SERÁ UTILIZADA EN DIFERENTES FUNCIONES. 
-let cantidad;
+
+
+
+//DECLARO LA VARIABLE CANTIDAD Y EDAD DE MANERA GLOBAL PORQUE SERÁ UTILIZADA EN DIFERENTES FUNCIONES. 
+
 let edad = false 
 let informacion = false
+let age = document.getElementById("age")
+let cantidad = document.getElementById("cantidad")
+let cuotas = document.getElementById("cuotas")
+let clientName = document.getElementById("name")
+let lastName = document.getElementById("lastName")
+
 
 //OBJETO EN DONDE SE ALMACENARA EL NOMBRE Y EDAD DEL CLIENTE 
 const Cliente = function(name, lastName, age){
@@ -17,25 +26,23 @@ let myArray = []
 // COMIENZA PIDIENDOLE AL USUARIO POR SU INFORMACIÓN GENERAL. 
 
 function informacionGeneral(){
-    let name;
-    let lastName;
 
     do {
-        name = prompt("Ingrese su nombre")
-        lastName = prompt("Ingrese su apellido")
-        
-    
+        clientName
+        lastName
 
-    if (name == "" || lastName == "") {
+    if (clientName == "" || lastName == "") {
         alert("Introduzca un dato valido")
     } else {
         informacion = true
-        alert("Bienvenido," + name + " " + lastName)
+        alert("Bienvenido," + clientName + " " + lastName)
     }
     } while(informacion == false)
+}
 
+    function edadCiente(){
     do {
-        let age = prompt("Ingrese su edad") 
+        age
         if (age == ""){
             alert("Introduzca su edad, por favor.")
         }else if(/\D/.test(age)){
@@ -47,15 +54,14 @@ function informacionGeneral(){
         alert("No podemos otorgarle un préstamo porque sobrepasa el máximo de edad.")
         break
     } else {
-        alert("Felicidades," + name + " " + lastName + " " + "puedes aplicar para un crédito. \n Da aceptar para continuar")
+        alert("Felicidades," + clientName + " " + lastName + " " + "puedes aplicar para un crédito. \n Da aceptar para continuar")
         edad = true
         // SE CREA UN NUEVO OBJETO DE LA FUNCION CONSTRUCTORA PARA ALMACENAR LA INFORMACION INGRESADA
-        let nuevoCliente = new Cliente(name, lastName, age)
+        let nuevoCliente = new Cliente(clientName, lastName, age)
         // SE AGREGA NUEVO CLIENTE A MI ARRAY
         myArray.push(nuevoCliente)
     }
 } while(edad == false)
-
 
 }
 
@@ -69,7 +75,7 @@ function cantidadPrestamo(){
 let prestamoCantidad = false
 
 do{
-    cantidad = parseInt(prompt("Ingrese la cantidad que desea obtener"))
+    cantidad
     myArray.push(cantidad)
 
     if (cantidad < 2500){
@@ -90,7 +96,6 @@ do{
 
 // FUNCION PARA QUE EL USUARIO ESCOGA LAS CUOTAS EN LAS QUE DESEA PAGAR EL PRESTAMO Y CALCULAR EL INTERES. 
 function cuotasPrestamo (){
-    let cuotas = prompt("Escoga el número de cuotas a pagar su préstamo. \n Pueden ser: 6, 12, 18 o 24 mensualidades.")
     let totalInteres;
     let pagoTotal;
 
@@ -137,6 +142,7 @@ function aceptarPrestamo(){
     } 
 }
 
+if (informacion == true)
 informacionGeneral()
 // AGREGO IF PARA QUE EL PROGRAMA PUEDA CONTINUAR SI LA PERSONA TIENE MÁS DE 18 AÑOS Y LA EDAD NO ES NULL, SINO ES ASÍ LAS DEMÁS FUNCIONES NO SE EJECUTAN
 if (edad == true && informacion == true){
@@ -147,4 +153,4 @@ if (edad == true && informacion == true){
 
 
 // LLAMO A MI ARRAY PARA VER CUAL FUE LA INFORMACIÓN QUE SE ALMACENÓ 
-console.log(myArray)*/
+console.log(myArray)
