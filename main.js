@@ -8,7 +8,7 @@ let informacion = false
 let age = document.getElementById("age")
 let cantidad = document.getElementById("cantidad")
 let cuotas = document.getElementById("cuotas")
-let clientName = document.getElementById("name")
+let clientName = document.getElementById("clientName")
 let lastName = document.getElementById("lastName")
 
 
@@ -24,46 +24,51 @@ let myArray = []
 
 
 // COMIENZA PIDIENDOLE AL USUARIO POR SU INFORMACIÓN GENERAL. 
+
+age.addEventListener("change", edadCliente)
+age.addEventListener("focusout", edadFocusOut)
+clientName.addEventListener("keyup", validaNombre)
+lastName.addEventListener("keyup", validaLastName)
+clientName.addEventListener("input", informacionGeneral)
+lastName.addEventListener("input", informacionGeneral)
+age.addEventListener("input", informacionGeneral)
+
+function validaNombre() {
+    let letters = /^[A-Za-z- ]+$/;
+    if (!clientName.value.match(letters)){
+        clientName.value = clientName.value.slice(0, -1);
+    } 
+}
+
+function validaLastName(){
+    let letters = /^[A-Za-z- ]+$/;
+    if (!lastName.value.match(letters)){
+        lastName.value = lastName.value.slice(0, -1);
+    } 
+}
+
+// FUNCION PARA GUARDAR LA INFORMACIÓN DEL USUARIO EN EL OBJETO Y AGREGARLO AL ARRAY
 function informacionGeneral(){
-
-    do {
-        clientName
-        lastName
-
-    if (clientName == "" || lastName == "") {
-        alert("Introduzca un dato valido")
-    } else {
-        informacion = true
-        alert("Bienvenido," + clientName + " " + lastName)
-    }
-    } while(informacion == false)
+let nuevoCliente = new Cliente(clientName, lastName, age)
+myArray.push(nuevoCliente)
 }
 
-    function edadCliente(){
-    do {
-        age
-        if (age == ""){
-            alert("Introduzca su edad, por favor.")
-        }else if(/\D/.test(age)){
-            alert("Introduzca un valor numérico")
-    }else if(age <= "18"){
-        alert("No podemos otorgarle un préstamo porque es menor de edad.") 
-        break
-    } else if(age >= 85) {
+function edadCliente(){
+    if(age.value <= 18){
+        alert("No podemos otorgarle un préstamo porque es menor de edad.")
+        age.value = null 
+        age.onfocus
+    } else if(age.value >= 85) {
         alert("No podemos otorgarle un préstamo porque sobrepasa el máximo de edad.")
-        break
-    } else {
-        alert("Felicidades," + clientName + " " + lastName + " " + "puedes aplicar para un crédito. \n Da aceptar para continuar")
-        edad = true
-        // SE CREA UN NUEVO OBJETO DE LA FUNCION CONSTRUCTORA PARA ALMACENAR LA INFORMACION INGRESADA
-        let nuevoCliente = new Cliente(clientName, lastName, age)
-        // SE AGREGA NUEVO CLIENTE A MI ARRAY
-        myArray.push(nuevoCliente)
-    }
-} while(edad == false)
-
+    } 
 }
 
+function edadFocusOut() {
+    if (age.value == "" ){
+        alert("Agrega tu edad")
+        age.onfocus
+    }
+}
 
 
 // CREO FUNCION DE CANTIDAD PARA RECAUDAR LA CANTIDAD QUE EL USUARIO DESEA ADQUIRIR
