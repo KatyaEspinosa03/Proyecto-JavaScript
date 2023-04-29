@@ -23,7 +23,7 @@ const Cliente = function(name, lastName, age){
 let myArray = []
 
 
-// COMIENZA PIDIENDOLE AL USUARIO POR SU INFORMACIÓN GENERAL. 
+// SE AGREGAN EVENTS A LOS ELEMENTOS
 
 age.addEventListener("change", edadCliente)
 age.addEventListener("focusout", edadFocusOut)
@@ -33,13 +33,14 @@ clientName.addEventListener("input", informacionGeneral)
 lastName.addEventListener("input", informacionGeneral)
 age.addEventListener("input", informacionGeneral)
 
+
+// FUNCION PARA VALIDAR QUE LOS DATOS AGREGEDOS EN CLIENTNAME Y LASTNAME SEAN LETRAS Y BORRAR TODO LO QUE NO SEA LETRAS
 function validaNombre() {
     let letters = /^[A-Za-z- ]+$/;
     if (!clientName.value.match(letters)){
         clientName.value = clientName.value.slice(0, -1);
-    } 
+    }
 }
-
 function validaLastName(){
     let letters = /^[A-Za-z- ]+$/;
     if (!lastName.value.match(letters)){
@@ -52,7 +53,7 @@ function informacionGeneral(){
 let nuevoCliente = new Cliente(clientName, lastName, age)
 myArray.push(nuevoCliente)
 }
-
+// FUNCION PARA VALIDAR LA EDAD
 function edadCliente(){
     if(age.value <= 18){
         alert("No podemos otorgarle un préstamo porque es menor de edad.")
@@ -62,7 +63,7 @@ function edadCliente(){
         alert("No podemos otorgarle un préstamo porque sobrepasa el máximo de edad.")
     } 
 }
-
+// FUNCION PARA REGRESAR EL FOCUS A LA EDAD SI SE DEJO EN BLANCO 
 function edadFocusOut() {
     if (age.value == "" ){
         alert("Agrega tu edad")
