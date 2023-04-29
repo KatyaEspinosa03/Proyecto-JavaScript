@@ -1,9 +1,7 @@
 //SIMULADOR DE UN PRESTAMO 
 
 
-
-
-//DECLARO LA VARIABLE CANTIDAD Y EDAD DE MANERA GLOBAL PORQUE SERÁ UTILIZADA EN DIFERENTES FUNCIONES. 
+//DECLARO LA VARIABLE CANTIDAD Y EDAD DE MANERA GLOBAL PORQUE SERÁ UTILIZADA EN DIFERENTES FUNCIONES Y ENLAZO MIS IDS DE HTML. 
 
 let edad = false 
 let informacion = false
@@ -23,8 +21,9 @@ const Cliente = function(name, lastName, age){
 }
 //ARRAY PARA GUARDAR LA INFORMACION QUE EL USUARIO INGRESA. COMO SI FUERA EL HISTORIAL 
 let myArray = []
-// COMIENZA PIDIENDOLE AL USUARIO POR SU INFORMACIÓN GENERAL. 
 
+
+// COMIENZA PIDIENDOLE AL USUARIO POR SU INFORMACIÓN GENERAL. 
 function informacionGeneral(){
 
     do {
@@ -40,7 +39,7 @@ function informacionGeneral(){
     } while(informacion == false)
 }
 
-    function edadCiente(){
+    function edadCliente(){
     do {
         age
         if (age == ""){

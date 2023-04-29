@@ -41,19 +41,19 @@
 <section class="container formulario">
 <form action="#" method="get" enctype="application/x-www-form-urlencoded"> 
     <label for="nombre" class="estilo-form fs-5"> Ingrese su nombre: </label> 
-    <input type="text" class="form-control" name="nombre" id="name"> 
+    <input type="text" class="form-control" name="nombre" id="clientName" pattern="[A-Za-z]" required> 
 
     <label for="apellido" class="estilo-form fs-5"> Ingrese su apellido: </label> 
-    <input type="text" class="form-control" name="apellido" id="lastName">
+    <input type="text" class="form-control" name="apellido" id="lastName" pattern="[A-Za-z]" required>
 
     <label for="edad" class="estilo-form fs-5"> Ingrese su edad: </label> 
-    <input type="number"  class="form-control" name="edad" id="age"> 
+    <input type="number"  class="form-control" name="edad" id="age" required> 
 
     <label for="cantidad" class="estilo-form fs-5"> Ingrese la cantidad que desea solicitar: </label> 
-    <input type="number"  class="form-control" name="cantidad" id="cantidad"> 
+    <input type="number"  class="form-control" name="cantidad" id="cantidad" required> 
 
     <label for="cuotas" class="estilo-form fs-5"> Ingrese las cuotas en las que desea liquidar el préstamo: </label> 
-    <input type="number"  class="form-control" name="cuotas" id="cuotas" placeholder="Puedes escoger entre 6, 12, 18 y 24 mensualidades"> 
+    <input type="number"  class="form-control" name="cuotas" id="cuotas" placeholder="Puedes escoger entre 6, 12, 18 y 24 mensualidades" required> 
 
     <div class="boton col text-center">
     <button type="submit" class="btn btn-rounded" id="boton"> Solicitar </button>
