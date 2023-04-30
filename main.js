@@ -69,7 +69,10 @@ function edadCliente(){
 }
 // FUNCION PARA REGRESAR EL FOCUS A LA EDAD SI SE DEJO EN BLANCO 
 function edadFocusOut() {
-    age.value == "" && alert("Agrega tu edad"), age.onfocus
+    if (age.value == "") {
+        age.placeholder = "Agrega tu edad"
+        age.onfocus
+    } 
 }
 
 
@@ -89,7 +92,10 @@ function cantidadPrestamo(){
 // FUNCION PARA REGRESAR EL FOCUS A CANTIDAD SI SE DEJO EN BLANCO 
 
 function cantidadFocusOut() {
-    cantidad.value == "" && alert("Agrega una cantidad"), cantidad.onfocus
+    if (cantidad.value == ""){
+        cantidad.placeholder = "Agrega una cantidad"
+        cantidad.onfocus
+    } 
 }
 
 // FUNCION PARA QUE EL USUARIO ESCOGA LAS CUOTAS EN LAS QUE DESEA PAGAR EL PRESTAMO Y CALCULAR EL INTERES. 
