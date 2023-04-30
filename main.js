@@ -1,15 +1,14 @@
 //SIMULADOR DE UN PRESTAMO 
 
 
-//DECLARO LA VARIABLE CANTIDAD Y EDAD DE MANERA GLOBAL PORQUE SERÁ UTILIZADA EN DIFERENTES FUNCIONES Y ENLAZO MIS IDS DE HTML. 
+// ENLAZO MIS IDS DE HTML. 
 
-let edad = false 
-let informacion = false
 let age = document.getElementById("age")
 let cantidad = document.getElementById("cantidad")
 let cuotas = document.getElementById("cuotas")
 let clientName = document.getElementById("clientName")
 let lastName = document.getElementById("lastName")
+let formulario = document.getElementById("myForm")
 
 
 //OBJETO EN DONDE SE ALMACENARA EL NOMBRE Y EDAD DEL CLIENTE 
@@ -37,6 +36,7 @@ cantidad.addEventListener("focusout", cantidadFocusOut)
 cuotas.addEventListener("change", cuotasPrestamo)
 
 
+
 // FUNCION PARA VALIDAR QUE LOS DATOS AGREGEDOS EN CLIENTNAME Y LASTNAME SEAN LETRAS Y BORRAR TODO LO QUE NO SEA LETRAS
 function validaNombre() {
     let letters = /^[A-Za-z- ]+$/;
@@ -54,7 +54,7 @@ function validaLastName(){
 
 // FUNCION PARA GUARDAR LA INFORMACIÓN DEL USUARIO EN EL OBJETO Y AGREGARLO AL ARRAY
 function informacionGeneral(){
-let nuevoCliente = new Cliente(clientName, lastName, age)
+let nuevoCliente = new Cliente(clientName.value, lastName.value, age.value)
 myArray.push(nuevoCliente)
 }
 // FUNCION PARA VALIDAR LA EDAD
@@ -69,10 +69,7 @@ function edadCliente(){
 }
 // FUNCION PARA REGRESAR EL FOCUS A LA EDAD SI SE DEJO EN BLANCO 
 function edadFocusOut() {
-    if (age.value == "" ){
-        alert("Agrega tu edad")
-        age.onfocus
-    }
+    age.value == "" && alert("Agrega tu edad"), age.onfocus
 }
 
 
@@ -85,17 +82,14 @@ function cantidadPrestamo(){
     }else if(cantidad.value > 150000){
         alert("La cantidad máxima a solicitar es 150,000. Ingrese otra cantidad.")
     }
-    myArray.push(cantidad)
+    myArray.push(cantidad.value)
 
 }
 
 // FUNCION PARA REGRESAR EL FOCUS A CANTIDAD SI SE DEJO EN BLANCO 
 
 function cantidadFocusOut() {
-    if (cantidad.value == "") {
-        alert("ingresa una cantidad")
-        cantidad.onfocus
-    }
+    cantidad.value == "" && alert("Agrega una cantidad"), cantidad.onfocus
 }
 
 // FUNCION PARA QUE EL USUARIO ESCOGA LAS CUOTAS EN LAS QUE DESEA PAGAR EL PRESTAMO Y CALCULAR EL INTERES. 
@@ -125,28 +119,24 @@ function cuotasPrestamo (){
             "\n En total pagarás" + " " + pagoTotal +" " + "al mes.")
     }
 
-    myArray.push(cuotas, totalInteres, pagoTotal)
+    myArray.push(cuotas.value, totalInteres, pagoTotal)
 }
 
-// FUNCION PARA QUE EL USUARIO DECIDA SI QUIERE O NO ACEPTAR EL PRESTAMO. 
+// SE AGREGA UN EVENTO DE SUMBIT AL FORMULARIO Y SE AGREGA LA FUNCION PARA QUE EL USUARIO DECIDA SI QUIERE O NO ACEPTAR EL PRESTAMO. 
 
-function aceptarPrestamo(){
+
+formulario.addEventListener("submit", function(event){
+    event.preventDefault();
 
     let aceptarPrestamo = confirm("¿Te gustaría aceptar el préstamo?")
 
     if (aceptarPrestamo == true) {
         alert("Felicidades, has obtenido tu préstamo.")
     } 
-}
+})
 
-if (informacion == true)
-informacionGeneral()
-// AGREGO IF PARA QUE EL PROGRAMA PUEDA CONTINUAR SI LA PERSONA TIENE MÁS DE 18 AÑOS Y LA EDAD NO ES NULL, SINO ES ASÍ LAS DEMÁS FUNCIONES NO SE EJECUTAN
-if (edad == true && informacion == true){
-    cantidadPrestamo()
-    cuotasPrestamo()
-    aceptarPrestamo()
-}
+
+
 
 
 // LLAMO A MI ARRAY PARA VER CUAL FUE LA INFORMACIÓN QUE SE ALMACENÓ 
