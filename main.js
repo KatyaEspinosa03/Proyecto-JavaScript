@@ -32,6 +32,9 @@ lastName.addEventListener("keyup", validaLastName)
 clientName.addEventListener("input", informacionGeneral)
 lastName.addEventListener("input", informacionGeneral)
 age.addEventListener("input", informacionGeneral)
+cantidad.addEventListener("change", cantidadPrestamo)
+cantidad.addEventListener("focusout", cantidadFocusOut)
+cuotas.addEventListener("change", cuotasPrestamo)
 
 
 // FUNCION PARA VALIDAR QUE LOS DATOS AGREGEDOS EN CLIENTNAME Y LASTNAME SEAN LETRAS Y BORRAR TODO LO QUE NO SEA LETRAS
@@ -41,6 +44,7 @@ function validaNombre() {
         clientName.value = clientName.value.slice(0, -1);
     }
 }
+
 function validaLastName(){
     let letters = /^[A-Za-z- ]+$/;
     if (!lastName.value.match(letters)){
@@ -76,61 +80,49 @@ function edadFocusOut() {
 
 function cantidadPrestamo(){
 
-// DECLARO LA VARIABLE DE PRESTAMO CANTIDAD COMO FALSO PORQUE LA CANTIDAD AUN NO HA SIDO INGRESADA POR EL USUARIO. 
-let prestamoCantidad = false
-
-do{
-    cantidad
-    myArray.push(cantidad)
-
-    if (cantidad < 2500){
+    if (cantidad.value < 2500){
         alert("La cantidad minima a solicitar es 2,500. Ingrese otra cantidad.")
-    }else if(/\D/.test(cantidad)){
-            alert("Introduzca un valor numérico")
-    }else if(cantidad > 150000){
+    }else if(cantidad.value > 150000){
         alert("La cantidad máxima a solicitar es 150,000. Ingrese otra cantidad.")
-    } else {
-    alert("La cantidad a solicitar es" + " " + cantidad)
-    prestamoCantidad = true
-    break
     }
-} while(prestamoCantidad == false)
+    myArray.push(cantidad)
 
 }
 
+// FUNCION PARA REGRESAR EL FOCUS A CANTIDAD SI SE DEJO EN BLANCO 
+
+function cantidadFocusOut() {
+    if (cantidad.value == "") {
+        alert("ingresa una cantidad")
+        cantidad.onfocus
+    }
+}
 
 // FUNCION PARA QUE EL USUARIO ESCOGA LAS CUOTAS EN LAS QUE DESEA PAGAR EL PRESTAMO Y CALCULAR EL INTERES. 
 function cuotasPrestamo (){
     let totalInteres;
     let pagoTotal;
 
-    switch(cuotas) {
-        case "6":
-            totalInteres = (cantidad * 10)/100
-            pagoTotal = (totalInteres + cantidad)/6
+    if (cuotas.value = 6) {
+            totalInteres = (cantidad.value * 10)/100
+            pagoTotal = (totalInteres + cantidad.value)/6
             alert("Has escogido 6 cuotas, tendrás una tasa de interes de 10%. \n Tus interes será:" + totalInteres + 
             "\n En total pagarás" + " " + pagoTotal +" " + "al mes.")
-            break
-        case "12": 
+    } else if (cuotas.value = 12){ 
             totalInteres = (cantidad * 12)/100
             pagoTotal = (totalInteres + cantidad)/12
             alert("Has escogido 12 cuotas, tendrás una tasa de interes de 12% \n Tus interes será:" + totalInteres + 
             "\n En total pagarás" + " " + pagoTotal +" " + "al mes.")
-            break
-        
-        case "18":
+    } else if (cuotas.value = 18) {
             totalInteres = (cantidad * 16)/100
             pagoTotal = (totalInteres + cantidad)/18
             alert("Has escogido 18 cuotas, tendrás una tasa de interes de 16% \n Tus interes será:" + totalInteres + 
             "\n En total pagarás" + " " + pagoTotal +" " + "al mes.")
-            break
-
-        default:
+    } else{
             totalInteres = (cantidad * 20)/100
             pagoTotal = (totalInteres + cantidad)/24
             alert("Has escogido 24 cuotas, tendrás una tasa de interes de 20% \n Tus interes será:" + totalInteres + 
             "\n En total pagarás" + " " + pagoTotal +" " + "al mes.")
-            break
     }
 
     myArray.push(cuotas, totalInteres, pagoTotal)
