@@ -28,9 +28,9 @@ age.addEventListener("change", edadCliente)
 age.addEventListener("focusout", edadFocusOut)
 clientName.addEventListener("keyup", validaNombre)
 lastName.addEventListener("keyup", validaLastName)
-clientName.addEventListener("input", informacionGeneral)
-lastName.addEventListener("input", informacionGeneral)
-age.addEventListener("input", informacionGeneral)
+clientName.addEventListener("change", informacionGeneral)
+lastName.addEventListener("change", informacionGeneral)
+age.addEventListener("change", informacionGeneral)
 cantidad.addEventListener("change", cantidadPrestamo)
 cantidad.addEventListener("focusout", cantidadFocusOut)
 cuotas.addEventListener("change", cuotasPrestamo)
@@ -97,24 +97,24 @@ function cuotasPrestamo (){
     let totalInteres;
     let pagoTotal;
 
-    if (cuotas.value = 6) {
+    if (cuotas.value == 6) {
             totalInteres = (cantidad.value * 10)/100
             pagoTotal = (totalInteres + cantidad.value)/6
             alert("Has escogido 6 cuotas, tendrás una tasa de interes de 10%. \n Tus interes será:" + totalInteres + 
             "\n En total pagarás" + " " + pagoTotal +" " + "al mes.")
-    } else if (cuotas.value = 12){ 
-            totalInteres = (cantidad * 12)/100
-            pagoTotal = (totalInteres + cantidad)/12
+    } else if (cuotas.value == 12){ 
+            totalInteres = (cantidad.value * 12)/100
+            pagoTotal = (totalInteres + cantidad.value)/12
             alert("Has escogido 12 cuotas, tendrás una tasa de interes de 12% \n Tus interes será:" + totalInteres + 
             "\n En total pagarás" + " " + pagoTotal +" " + "al mes.")
-    } else if (cuotas.value = 18) {
-            totalInteres = (cantidad * 16)/100
-            pagoTotal = (totalInteres + cantidad)/18
+    } else if (cuotas.value == 18) {
+            totalInteres = (cantidad.value * 16)/100
+            pagoTotal = (totalInteres + cantidad.value)/18
             alert("Has escogido 18 cuotas, tendrás una tasa de interes de 16% \n Tus interes será:" + totalInteres + 
             "\n En total pagarás" + " " + pagoTotal +" " + "al mes.")
     } else{
             totalInteres = (cantidad * 20)/100
-            pagoTotal = (totalInteres + cantidad)/24
+            pagoTotal = (totalInteres + cantidad.value)/24
             alert("Has escogido 24 cuotas, tendrás una tasa de interes de 20% \n Tus interes será:" + totalInteres + 
             "\n En total pagarás" + " " + pagoTotal +" " + "al mes.")
     }
