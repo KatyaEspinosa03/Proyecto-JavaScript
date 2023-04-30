@@ -9,7 +9,7 @@ let cuotas = document.getElementById("cuotas")
 let clientName = document.getElementById("clientName")
 let lastName = document.getElementById("lastName")
 let formulario = document.getElementById("myForm")
-
+let mensajes = document.getElementById("mensajes")
 
 //OBJETO EN DONDE SE ALMACENARA EL NOMBRE Y EDAD DEL CLIENTE 
 const Cliente = function(name, lastName, age){
@@ -28,8 +28,6 @@ age.addEventListener("change", edadCliente)
 age.addEventListener("focusout", edadFocusOut)
 clientName.addEventListener("keyup", validaNombre)
 lastName.addEventListener("keyup", validaLastName)
-clientName.addEventListener("change", informacionGeneral)
-lastName.addEventListener("change", informacionGeneral)
 age.addEventListener("change", informacionGeneral)
 cantidad.addEventListener("change", cantidadPrestamo)
 cantidad.addEventListener("focusout", cantidadFocusOut)
@@ -60,11 +58,17 @@ myArray.push(nuevoCliente)
 // FUNCION PARA VALIDAR LA EDAD
 function edadCliente(){
     if(age.value <= 18){
-        alert("No podemos otorgarle un préstamo porque es menor de edad.")
+        mensajes.innerHTML =
+        ` <div class="col-md-6 align-center text-left">
+                <p> No podemos otorgarle un préstamo porque es menor de edad </p>
+            </div> ` 
         age.value = null 
         age.onfocus
     } else if(age.value >= 85) {
-        alert("No podemos otorgarle un préstamo porque sobrepasa el máximo de edad.")
+        mensajes.innerHTML =
+        ` <div class="col-md-6 align-center text-left">
+                <p> No podemos otorgarle un préstamo porque sobrepasa el máximo de edad. </p>
+            </div> `
     } 
 }
 // FUNCION PARA REGRESAR EL FOCUS A LA EDAD SI SE DEJO EN BLANCO 
@@ -81,9 +85,15 @@ function edadFocusOut() {
 function cantidadPrestamo(){
 
     if (cantidad.value < 2500){
-        alert("La cantidad minima a solicitar es 2,500. Ingrese otra cantidad.")
+        mensajes.innerHTML =
+        ` <div class="col-md-6 align-center text-left">
+                <p> La cantidad minima a solicitar es 2,500. Ingrese otra cantidad. </p>
+            </div> `
     }else if(cantidad.value > 150000){
-        alert("La cantidad máxima a solicitar es 150,000. Ingrese otra cantidad.")
+        mensajes.innerHTML =
+        ` <div class="col-md-6 align-center text-left">
+                <p> La cantidad máxima a solicitar es 150,000. Ingrese otra cantidad. </p>
+            </div> `
     }
     myArray.push(cantidad.value)
 
@@ -105,24 +115,41 @@ function cuotasPrestamo (){
 
     if (cuotas.value == 6) {
             totalInteres = (cantidad.value * 10)/100
-            pagoTotal = (totalInteres + cantidad.value)/6
-            alert("Has escogido 6 cuotas, tendrás una tasa de interes de 10%. \n Tus interes será:" + totalInteres + 
-            "\n En total pagarás" + " " + pagoTotal +" " + "al mes.")
+            pagoTotal = (totalInteres + parseFloat(cantidad.value))/6
+            mensajes.innerHTML =
+        ` <div class="col-md-6 align-center text-left">
+                <p> Has escogido 6 cuotas, tendrás una tasa de interes de 10%. \n Tus interes será: ${totalInteres}  
+                \n En total pagarás ${pagoTotal} al mes. </p>
+            </div> `
     } else if (cuotas.value == 12){ 
             totalInteres = (cantidad.value * 12)/100
-            pagoTotal = (totalInteres + cantidad.value)/12
-            alert("Has escogido 12 cuotas, tendrás una tasa de interes de 12% \n Tus interes será:" + totalInteres + 
-            "\n En total pagarás" + " " + pagoTotal +" " + "al mes.")
+            pagoTotal = (totalInteres + parseFloat(cantidad.value))/12
+            mensajes.innerHTML =
+            ` <div class="col-md-6 align-center text-left">
+                    <p> Has escogido 12 cuotas, tendrás una tasa de interes de 12%. \n Tus interes será: ${totalInteres}  
+                    \n En total pagarás ${pagoTotal} al mes. </p>
+                </div> `
     } else if (cuotas.value == 18) {
             totalInteres = (cantidad.value * 16)/100
-            pagoTotal = (totalInteres + cantidad.value)/18
-            alert("Has escogido 18 cuotas, tendrás una tasa de interes de 16% \n Tus interes será:" + totalInteres + 
-            "\n En total pagarás" + " " + pagoTotal +" " + "al mes.")
-    } else{
-            totalInteres = (cantidad * 20)/100
-            pagoTotal = (totalInteres + cantidad.value)/24
-            alert("Has escogido 24 cuotas, tendrás una tasa de interes de 20% \n Tus interes será:" + totalInteres + 
-            "\n En total pagarás" + " " + pagoTotal +" " + "al mes.")
+            pagoTotal = (totalInteres + parseFloat(cantidad.value))/18
+            mensajes.innerHTML =
+        ` <div class="col-md-6 align-center text-left">
+                <p> Has escogido 18 cuotas, tendrás una tasa de interes de 16%. \n Tus interes será: ${totalInteres}  
+                \n En total pagarás ${pagoTotal} al mes. </p>
+            </div> `
+    } else if (cuotas.value == 24){
+            totalInteres = (cantidad.value * 20)/100
+            pagoTotal = (totalInteres + parseFloat(cantidad.value))/24
+            mensajes.innerHTML =
+        ` <div class="col-md-6 align-center text-left">
+                <p> Has escogido 24 cuotas, tendrás una tasa de interes de 20%. \n Tus interes será: ${totalInteres}  
+                \n En total pagarás ${pagoTotal} al mes. </p>
+            </div> `
+    } else {
+        mensajes.innerHTML =
+        ` <div class="col-md-6 align-center text-left">
+                <p> No tenemos ese numero de cuotas disponibles. </p>
+            </div> `
     }
 
     myArray.push(cuotas.value, totalInteres, pagoTotal)
