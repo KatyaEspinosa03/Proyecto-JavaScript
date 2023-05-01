@@ -27,6 +27,13 @@ main {
     }
 }
 
+#mensajes {
+    background-color: $colorTexto;
+    color:  rgb(254,251,234);
+    width: 50%;
+    border-radius: 20px;
+}
+
 .formulario {
     width: 50%;
     margin-bottom: 10px;

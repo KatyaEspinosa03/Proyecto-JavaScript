@@ -16,6 +16,12 @@ main {
   main .segundo {
     margin-top: -10px; }
 
+#mensajes {
+  background-color: #be7db9;
+  color: #fefbea;
+  width: 50%;
+  border-radius: 20px; }
+
 .formulario {
   width: 50%;
   margin-bottom: 10px; }

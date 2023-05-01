@@ -59,14 +59,14 @@ myArray.push(nuevoCliente)
 function edadCliente(){
     if(age.value <= 18){
         mensajes.innerHTML =
-        ` <div class="col-md-6 align-center text-left">
+        ` <div class="col-md-12 text-left text-justify mensaje">
                 <p> No podemos otorgarle un préstamo porque es menor de edad </p>
             </div> ` 
         age.value = null 
         age.onfocus
     } else if(age.value >= 85) {
         mensajes.innerHTML =
-        ` <div class="col-md-6 align-center text-left">
+        ` <div class="col-md-12 text-left text-justify mensaje">
                 <p> No podemos otorgarle un préstamo porque sobrepasa el máximo de edad. </p>
             </div> `
     } 
@@ -86,12 +86,12 @@ function cantidadPrestamo(){
 
     if (cantidad.value < 2500){
         mensajes.innerHTML =
-        ` <div class="col-md-6 align-center text-left">
+        `<div class="col-md-12 text-left text-justify mensaje">
                 <p> La cantidad minima a solicitar es 2,500. Ingrese otra cantidad. </p>
             </div> `
     }else if(cantidad.value > 150000){
         mensajes.innerHTML =
-        ` <div class="col-md-6 align-center text-left">
+        ` <div class="col-md-12 text-left text-justify mensaje">
                 <p> La cantidad máxima a solicitar es 150,000. Ingrese otra cantidad. </p>
             </div> `
     }
@@ -117,7 +117,7 @@ function cuotasPrestamo (){
             totalInteres = (cantidad.value * 10)/100
             pagoTotal = (totalInteres + parseFloat(cantidad.value))/6
             mensajes.innerHTML =
-        ` <div class="col-md-6 align-center text-left">
+        ` <div class="col-md-12 text-left text-justify mensaje">
                 <p> Has escogido 6 cuotas, tendrás una tasa de interes de 10%. \n Tus interes será: ${totalInteres}  
                 \n En total pagarás ${pagoTotal} al mes. </p>
             </div> `
@@ -125,7 +125,7 @@ function cuotasPrestamo (){
             totalInteres = (cantidad.value * 12)/100
             pagoTotal = (totalInteres + parseFloat(cantidad.value))/12
             mensajes.innerHTML =
-            ` <div class="col-md-6 align-center text-left">
+            ` <div class="col-md-12 text-left text-justify mensaje">
                     <p> Has escogido 12 cuotas, tendrás una tasa de interes de 12%. \n Tus interes será: ${totalInteres}  
                     \n En total pagarás ${pagoTotal} al mes. </p>
                 </div> `
@@ -133,7 +133,7 @@ function cuotasPrestamo (){
             totalInteres = (cantidad.value * 16)/100
             pagoTotal = (totalInteres + parseFloat(cantidad.value))/18
             mensajes.innerHTML =
-        ` <div class="col-md-6 align-center text-left">
+        ` <div class="col-md-12 text-left text-justify mensaje">
                 <p> Has escogido 18 cuotas, tendrás una tasa de interes de 16%. \n Tus interes será: ${totalInteres}  
                 \n En total pagarás ${pagoTotal} al mes. </p>
             </div> `
@@ -141,13 +141,13 @@ function cuotasPrestamo (){
             totalInteres = (cantidad.value * 20)/100
             pagoTotal = (totalInteres + parseFloat(cantidad.value))/24
             mensajes.innerHTML =
-        ` <div class="col-md-6 align-center text-left">
+        ` <div class="col-md-12 text-left text-justify mensaje">
                 <p> Has escogido 24 cuotas, tendrás una tasa de interes de 20%. \n Tus interes será: ${totalInteres}  
                 \n En total pagarás ${pagoTotal} al mes. </p>
             </div> `
     } else {
         mensajes.innerHTML =
-        ` <div class="col-md-6 align-center text-left">
+        `<div class="col-md-12 text-left text-justify mensaje">
                 <p> No tenemos ese numero de cuotas disponibles. </p>
             </div> `
     }
