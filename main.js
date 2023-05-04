@@ -160,12 +160,16 @@ function cuotasPrestamo (){
 
 
 formulario.addEventListener("submit", function(event){
+
     event.preventDefault();
 
     let aceptarPrestamo = confirm("¿Te gustaría aceptar el préstamo?")
 
     if (aceptarPrestamo == true) {
-        alert("Felicidades, has obtenido tu préstamo.")
+        mensajes.innerHTML =
+        `<div class="col-md-12 text-left text-justify mensaje">
+                <p> Felicidades, has obtenido un préstamo por la cantidad de ${cantidad.value}. </p>
+            </div> `
     } 
 })
 
