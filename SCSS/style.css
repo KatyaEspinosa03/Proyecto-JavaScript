@@ -10,6 +10,9 @@ body {
       color: #be7db9;
       font-size: 150%; }
 
+img {
+  width: 95%; }
+
 main {
   font-weight: bold;
   color: #be7db9; }
