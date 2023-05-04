@@ -172,6 +172,7 @@ formulario.addEventListener("submit", function(event){
 
 
 // CREO FUNCION PARA ALMACENAR LA INFORMACION DEL LOCAL STORAGE 
+
 boton.addEventListener("click", localStorageFormulario)
 
 function localStorageFormulario() {
