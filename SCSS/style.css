@@ -8,10 +8,11 @@ body {
     .nav .nav-item a {
       font-weight: bold;
       color: #be7db9;
-      font-size: 150%; }
-
-img {
-  width: 95%; }
+      font-size: 150%;
+      transition: 1s; }
+      .nav .nav-item a:hover {
+        color: #7c5479;
+        transform: scale(0.9, 0.9); }
 
 main {
   font-weight: bold;
@@ -22,8 +23,7 @@ main {
 #mensajes {
   background-color: #be7db9;
   color: #fefbea;
-  width: 50%;
-  border-radius: 20px; }
+  width: 45%; }
 
 .formulario {
   width: 50%;
@@ -35,7 +35,11 @@ main {
     background-color: #be7db9;
     color: #fff;
     margin-top: 20px;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    transition: 1s; }
+    .formulario .btn:hover {
+      transform: scale(0.9, 0.9);
+      box-shadow: 2px 2px 2px 2px #e1bdde; }
 
 footer {
   background-color: white;
