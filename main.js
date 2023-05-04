@@ -10,6 +10,7 @@ let clientName = document.getElementById("clientName")
 let lastName = document.getElementById("lastName")
 let formulario = document.getElementById("myForm")
 let mensajes = document.getElementById("mensajes")
+let boton = document.getElementById("boton")
 
 //OBJETO EN DONDE SE ALMACENARA EL NOMBRE Y EDAD DEL CLIENTE 
 const Cliente = function(name, lastName, age){
@@ -170,7 +171,17 @@ formulario.addEventListener("submit", function(event){
 
 
 
+// CREO FUNCION PARA ALMACENAR LA INFORMACION DEL LOCAL STORAGE 
+boton.addEventListener("click", localStorageFormulario)
+function localStorageFormulario() {
 
+    localStorage.setItem("Nombre", clientName.value)
+    localStorage.setItem("Apellido", lastName.value)
+    localStorage.setItem("Edad", age.value)
+    localStorage.setItem("Cantidad", cantidad.value)
+    localStorage.setItem("Cuotas", cuotas.value)
+}
 
 // LLAMO A MI ARRAY PARA VER CUAL FUE LA INFORMACIÓN QUE SE ALMACENÓ 
+
 console.log(myArray)
