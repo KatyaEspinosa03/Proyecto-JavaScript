@@ -144,11 +144,15 @@ formulario.addEventListener("submit", function(event){
 
     event.preventDefault();
 
+    // VALIDO QUE NO HAYAN QUEDADO CAMPOS EN BLANCO, SI ES ASÍ APARECE UN ERROR PIDIENDO AL USUARIO QUE AGREGE LA 
+    // INFORMACION QUE FALTA 
 if (clientName.value == " " || lastName.value == " " || age.value == "" || cantidad.value == "" || cuotas.value == "") {
     Swal.fire({
         icon: 'error',
         text: 'Rellena todos los campos antes de continuar.'
     })
+
+    // SI TODOS LOS DATOS SON VALIDOS, EL PROGRAMA CONTINUA CON LA CONFIRMACIÓN 
 } else{
     Swal.fire({
         title: '¿Te gustaría aceptar el préstamo',
