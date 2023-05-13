@@ -152,10 +152,12 @@ formulario.addEventListener("submit", function(event){
     }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-        Swal.fire("Felicidades," + " " + clientName.value + " " + lastName.value + "," + "has obtenido tu préstamo por la cantidad de"
-        + " " + "$" + cantidad.value)
+        setTimeout(() => {Swal.fire("Felicidades," + " " + clientName.value + " " + lastName.value + "," 
+        + "has obtenido tu préstamo por la cantidad de" + " " + "$" + cantidad.value)}, 2000)
+        Swal.fire('Un momento, estamos procesando tu solicitud')
+
         } else if (result.isDenied) {
-            Swal.fire('Préstamo no aceptado. Gracias por cotizar tu préstamo con nosotros')
+            Swal.fire('Solicitud cancelada')
         }
     })
 })
