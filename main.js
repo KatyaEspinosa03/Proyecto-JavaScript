@@ -59,17 +59,19 @@ myArray.push(nuevoCliente)
 // FUNCION PARA VALIDAR LA EDAD
 function edadCliente(){
     if(age.value <= 18){
-        mensajes.innerHTML =
-        ` <div class="col-md-12 text-left text-justify mensaje">
-                <p> No podemos otorgarle un préstamo porque es menor de edad </p>
-            </div> ` 
+        Swal.fire({
+            icon: 'error',
+            title: 'Lo sentimos',
+            text: 'No podemos otorgarle un préstamo porque es menor de edad'
+        })
         age.value = null 
         age.onfocus
     } else if(age.value >= 85) {
-        mensajes.innerHTML =
-        ` <div class="col-md-12 text-left text-justify mensaje">
-                <p> No podemos otorgarle un préstamo porque sobrepasa el máximo de edad. </p>
-            </div> `
+        Swal.fire({
+            icon: 'error',
+            title: 'Lo sentimos',
+            text: 'No podemos otorgarle un préstamo porque sobrepasa el máximo de edad.'
+        })
     } 
 }
 // FUNCION PARA REGRESAR EL FOCUS A LA EDAD SI SE DEJO EN BLANCO 
@@ -86,15 +88,17 @@ function edadFocusOut() {
 function cantidadPrestamo(){
 
     if (cantidad.value < 2500){
-        mensajes.innerHTML =
-        `<div class="col-md-12 text-left text-justify mensaje">
-                <p> La cantidad minima a solicitar es 2,500. Ingrese otra cantidad. </p>
-            </div> `
+        Swal.fire({
+            icon: 'warning',
+            title: 'Cantidad no válida',
+            text: 'La cantidad mínima a solicitar es $2,500. Ingrese otra cantidad',
+        })
     }else if(cantidad.value > 150000){
-        mensajes.innerHTML =
-        ` <div class="col-md-12 text-left text-justify mensaje">
-                <p> La cantidad máxima a solicitar es 150,000. Ingrese otra cantidad. </p>
-            </div> `
+        Swal.fire({
+            icon: 'warning',
+            title: 'Cantidad no válida',
+            text: 'La cantidad máxima a solicitar es $150,000. Ingrese otra cantidad.',
+        })
     }
     myArray.push(cantidad.value)
 
@@ -117,16 +121,17 @@ function cuotasPrestamo (){
     if(cuotas.value == 6 || cuotas.value == 12 || cuotas.value == 18 || cuotas.value == 24){
         totalInteres = (cantidad.value * 10)/100
         pagoTotal = (totalInteres + parseFloat(cantidad.value))/cuotas.value
-        mensajes.innerHTML =
-    ` <div class="col-md-12 text-left text-justify mensaje">
-            <p> Has escogido ${cuotas.value} cuotas, tendrás una tasa de interes de 10%. \n Pagarás $${totalInteres} de interés total.
-            \n En total pagarás $${pagoTotal} al mes. </p>
-        </div> `
+        Swal.fire({
+            icon: 'info',
+            text: "Has escogido" + " " + cuotas.value + " " + "cuotas, tendrás una tasa de interes de 10%. \n Pagarás $" + totalInteres + " " +
+            "de interés total. En total pagarás $" + pagoTotal + " " + "al mes"
+        })
         } else {
-            mensajes.innerHTML =
-            `<div class="col-md-12 text-left text-justify mensaje">
-                    <p> No tenemos ese numero de cuotas disponibles. </p>
-                </div> `
+            Swal.fire({
+                icon: 'error',
+                text: 'No tenemos ese numero de cuotas disponibles. Ingresa un número de cuotas válido'
+            })
+            cuotas.value = null
         }
 
     myArray.push(cuotas.value, totalInteres, pagoTotal)
@@ -139,14 +144,20 @@ formulario.addEventListener("submit", function(event){
 
     event.preventDefault();
 
-    let aceptarPrestamo = confirm("¿Te gustaría aceptar el préstamo?")
-
-    if (aceptarPrestamo == true) {
-        mensajes.innerHTML =
-        `<div class="col-md-12 text-left text-justify mensaje">
-                <p> Felicidades, has obtenido un préstamo por la cantidad de ${cantidad.value}. </p>
-            </div> `
-    } 
+    Swal.fire({
+        title: '¿Te gustaría aceptar el préstamo',
+        showDenyButton: true,
+        confirmButtonText: 'Sí',
+        denyButtonText: `No`,
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+        Swal.fire("Felicidades," + " " + clientName.value + " " + lastName.value + "," + "has obtenido tu préstamo por la cantidad de"
+        + " " + "$" + cantidad.value)
+        } else if (result.isDenied) {
+            Swal.fire('Préstamo no aceptado. Gracias por cotizar tu préstamo con nosotros')
+        }
+    })
 })
 
 
