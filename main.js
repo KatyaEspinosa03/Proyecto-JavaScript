@@ -174,6 +174,14 @@ function localStorageFormulario() {
     localStorage.setItem("Cantidad", cantidad.value)
     localStorage.setItem("Cuotas", cuotas.value)
 }
+// recupero datos del forumalario para hacer autorelleno 
+
+function recuperarFormulario(){
+    clientName.value = localStorage.getItem("Nombre")
+    lastName.value = localStorage.getItem("Apellido")
+    age.value = localStorage.getItem("Edad")
+}
+recuperarFormulario()
 
 // LLAMO A MI ARRAY PARA VER CUAL FUE LA INFORMACIÓN QUE SE ALMACENÓ 
 
