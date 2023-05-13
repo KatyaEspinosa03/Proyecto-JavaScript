@@ -116,14 +116,26 @@ function cantidadFocusOut() {
 // FUNCION PARA QUE EL USUARIO ESCOGA LAS CUOTAS EN LAS QUE DESEA PAGAR EL PRESTAMO Y CALCULAR EL INTERES. 
 function cuotasPrestamo (){
     let totalInteres;
-    let pagoTotal;
+    let pagoTotal;  
+    let interes = 10
+
+    // IF PARA CAMBIAR EL VALOR DEL INTERES DEPENDIENDO DE LAS CUOTAS ESCOGIDAS
+    if (cuotas.value == 6) {
+        interes += 2
+    } else if (cuotas.value == 12){
+        interes += 4
+    }else if (cuotas.value == 18){
+        interes += 6
+    }else if (cuotas.value == 24){
+        interes += 8
+    }
 
     if(cuotas.value == 6 || cuotas.value == 12 || cuotas.value == 18 || cuotas.value == 24){
-        totalInteres = (cantidad.value * 10)/100
+        totalInteres = (cantidad.value * interes)/100
         pagoTotal = (totalInteres + parseFloat(cantidad.value))/cuotas.value
         Swal.fire({
             icon: 'info',
-            text: "Has escogido" + " " + cuotas.value + " " + "cuotas, tendrás una tasa de interes de 10%. \n Pagarás $" + totalInteres + " " +
+            text: "Has escogido" + " " + cuotas.value + " " + "cuotas, tendrás una tasa de interes del" + " "+ interes +"%. \n Pagarás $" + totalInteres + " " +
             "de interés total. En total pagarás $" + pagoTotal + " " + "al mes"
         })
         } else {
