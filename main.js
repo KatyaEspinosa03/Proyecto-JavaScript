@@ -144,22 +144,28 @@ formulario.addEventListener("submit", function(event){
 
     event.preventDefault();
 
+if (clientName.value == " " || lastName.value == " " || age.value == "" || cantidad.value == "" || cuotas.value == "") {
+    Swal.fire({
+        icon: 'error',
+        text: 'Rellena todos los campos antes de continuar.'
+    })
+} else{
     Swal.fire({
         title: '¿Te gustaría aceptar el préstamo',
         showDenyButton: true,
         confirmButtonText: 'Sí',
         denyButtonText: `No`,
     }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
         setTimeout(() => {Swal.fire("Felicidades," + " " + clientName.value + " " + lastName.value + "," 
         + "has obtenido tu préstamo por la cantidad de" + " " + "$" + cantidad.value)}, 2000)
+
         Swal.fire('Un momento, estamos procesando tu solicitud')
 
         } else if (result.isDenied) {
             Swal.fire('Solicitud cancelada')
         }
-    })
+    })}
 })
 
 
