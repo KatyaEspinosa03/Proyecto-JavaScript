@@ -114,44 +114,20 @@ function cuotasPrestamo (){
     let totalInteres;
     let pagoTotal;
 
-    if (cuotas.value == 6) {
-            totalInteres = (cantidad.value * 10)/100
-            pagoTotal = (totalInteres + parseFloat(cantidad.value))/6
-            mensajes.innerHTML =
-        ` <div class="col-md-12 text-left text-justify mensaje">
-                <p> Has escogido 6 cuotas, tendrás una tasa de interes de 10%. \n Tus interes será: ${totalInteres}  
-                \n En total pagarás ${pagoTotal} al mes. </p>
-            </div> `
-    } else if (cuotas.value == 12){ 
-            totalInteres = (cantidad.value * 12)/100
-            pagoTotal = (totalInteres + parseFloat(cantidad.value))/12
-            mensajes.innerHTML =
-            ` <div class="col-md-12 text-left text-justify mensaje">
-                    <p> Has escogido 12 cuotas, tendrás una tasa de interes de 12%. \n Tus interes será: ${totalInteres}  
-                    \n En total pagarás ${pagoTotal} al mes. </p>
-                </div> `
-    } else if (cuotas.value == 18) {
-            totalInteres = (cantidad.value * 16)/100
-            pagoTotal = (totalInteres + parseFloat(cantidad.value))/18
-            mensajes.innerHTML =
-        ` <div class="col-md-12 text-left text-justify mensaje">
-                <p> Has escogido 18 cuotas, tendrás una tasa de interes de 16%. \n Tus interes será: ${totalInteres}  
-                \n En total pagarás ${pagoTotal} al mes. </p>
-            </div> `
-    } else if (cuotas.value == 24){
-            totalInteres = (cantidad.value * 20)/100
-            pagoTotal = (totalInteres + parseFloat(cantidad.value))/24
-            mensajes.innerHTML =
-        ` <div class="col-md-12 text-left text-justify mensaje">
-                <p> Has escogido 24 cuotas, tendrás una tasa de interes de 20%. \n Tus interes será: ${totalInteres}  
-                \n En total pagarás ${pagoTotal} al mes. </p>
-            </div> `
-    } else {
+    if(cuotas.value == 6 || cuotas.value == 12 || cuotas.value == 18 || cuotas.value == 24){
+        totalInteres = (cantidad.value * 10)/100
+        pagoTotal = (totalInteres + parseFloat(cantidad.value))/cuotas.value
         mensajes.innerHTML =
-        `<div class="col-md-12 text-left text-justify mensaje">
-                <p> No tenemos ese numero de cuotas disponibles. </p>
-            </div> `
-    }
+    ` <div class="col-md-12 text-left text-justify mensaje">
+            <p> Has escogido ${cuotas.value} cuotas, tendrás una tasa de interes de 10%. \n Pagarás $${totalInteres} de interés total.
+            \n En total pagarás $${pagoTotal} al mes. </p>
+        </div> `
+        } else {
+            mensajes.innerHTML =
+            `<div class="col-md-12 text-left text-justify mensaje">
+                    <p> No tenemos ese numero de cuotas disponibles. </p>
+                </div> `
+        }
 
     myArray.push(cuotas.value, totalInteres, pagoTotal)
 }
