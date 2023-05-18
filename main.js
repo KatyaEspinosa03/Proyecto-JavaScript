@@ -11,6 +11,7 @@ let lastName = document.getElementById("lastName")
 let formulario = document.getElementById("myForm")
 let mensajes = document.getElementById("mensajes")
 let boton = document.getElementById("boton")
+let botonInfo = document.getElementById("boton-info")
 
 //OBJETO EN DONDE SE ALMACENARA EL NOMBRE Y EDAD DEL CLIENTE 
 const Cliente = function(name, lastName, age){
@@ -120,6 +121,7 @@ function cuotasPrestamo (){
     let interes = 10
 
     // IF PARA CAMBIAR EL VALOR DEL INTERES DEPENDIENDO DE LAS CUOTAS ESCOGIDAS
+
     if (cuotas.value == 6) {
         interes += 2
     } else if (cuotas.value == 12){
@@ -206,6 +208,27 @@ function recuperarFormulario(){
     age.value = localStorage.getItem("Edad")
 }
 recuperarFormulario()
+
+// FETCH 
+// CREO UNA FUNCION PARA TRAER LA INFORMACION DEL JSON AL DAR CLICK EN EL BOTON DE "CONOCE MÁS SOBRE NOSOTROS"
+botonInfo.addEventListener("click", obtenerJson)
+
+function obtenerJson(){
+    fetch("./data/data.json")
+    .then(response => response.json())
+    .then(data => { 
+        let nosotros= document.getElementById("boton-contacto")
+        nosotros.innerHTML = `
+        <ul class="list-group"> 
+            <li class="list-group-item"> ${data.nombre} </li>
+            <li class="list-group-item">${data.antigüedad}  </li>
+            <li class="list-group-item"> ${data.pais} </li>
+            <li class="list-group-item"> ${data.telefono} </li>
+            <li class="list-group-item"> ${data.email} </li>
+        </ul>`
+
+    })
+}
 
 // LLAMO A MI ARRAY PARA VER CUAL FUE LA INFORMACIÓN QUE SE ALMACENÓ 
 

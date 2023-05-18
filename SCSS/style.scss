@@ -76,4 +76,18 @@ footer {
         font-size: 70%;
         margin-top: 10px;
     }
+
+    .boton{
+        background-color: $colorTexto;
+        color: #fff;
+        
+    }
+    .contacto{
+        ul{
+            li {
+                color:$colorTexto;
+            }
+        }
+    }
+  
 }

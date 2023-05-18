@@ -52,5 +52,10 @@ footer {
   footer .copy-right {
     font-size: 70%;
     margin-top: 10px; }
+  footer .boton {
+    background-color: #be7db9;
+    color: #fff; }
+  footer .contacto ul li {
+    color: #be7db9; }
 
 /*# sourceMappingURL=style.css.map */
